@@ -1,0 +1,44 @@
+﻿# Dotnet
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.vspscc
+*.vssscc
+*.dbmdl
+
+# Build results
+*.dll
+*.exe
+*.app
+*.log
+
+# ASP.NET Core secrets (jeśli używasz)
+**/secrets.json
+
+# Publish results
+publish/
+out/
+
+# Visual Studio Code (jeśli przypadkiem użyjesz)
+.vscode/
+
+# Mac OS / Linux / Windows śmieci
+.DS_Store
+Thumbs.db
+
+# dotenv / lokalne configi
+.env
+*.local.json
+
+# Logs
+*.log
+logs/
