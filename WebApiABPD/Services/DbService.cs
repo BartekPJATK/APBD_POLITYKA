@@ -11,6 +11,7 @@ public interface IDbService
     public Task<ICollection<PolitykGetDto>> GetPolitycyAsync();
     public Task<PolitykGetDto> GetPolitykByIdAsync(int politykId);
     public Task<PolitykGetDto> CreatePolitykAsync(PolitykCreateDto politykData);
+    public Task<SimplePolitykGetDto> GetSimplePolitycyAsync();
 }
 
 public class DbService(MyDbContext data) : IDbService
@@ -112,5 +113,18 @@ public class DbService(MyDbContext data) : IDbService
                 Do = prz.Do
             }).ToList()
         };
+    }
+
+    public async Task<SimplePolitykGetDto> GetSimplePolitycyAsync()
+    {
+        var result = await data.Politycy.Select(p => new SimplePolitykGetDto
+        {   
+            Id = p.Id,
+            Imie = p.Imie,
+            Nazwisko = p.Nazwisko,
+            Powiedzenie = p.Powiedzenie
+        }).FirstOrDefaultAsync();
+        
+        return result ?? throw new NotFoundException("Nie ma polityków");
     }
 }

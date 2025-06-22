@@ -27,6 +27,12 @@ public class PolitycyController(IDbService service) : ControllerBase
         }
     }
 
+    [HttpGet("simple")]
+    public async Task<IActionResult> GetSimplePolitycy()
+    {
+        return Ok(await service.GetSimplePolitycyAsync());
+    }
+
     [HttpPost]
     public async Task<IActionResult> AddPolityk([FromBody] PolitykCreateDto politykData)
     {
